@@ -1,0 +1,37 @@
+{
+  "manifest_version": 2,
+  "name": "Reddit Interaction Reducer",
+  "version": "1.1",
+  "description": "Do you always feel miserable after a Reddit interaction? Well, stop doing it! This extension disables \"Create post\", \"Add a comment\" and \"Reply\" buttons.",
+  "permissions": [
+    "webNavigation",
+    "activeTab",
+    "*://www.reddit.com/*"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon/favicon-16x16.png",
+      "32": "icon/favicon-32x32.png",
+      "48": "icon/favicon-48x48.png",
+      "128": "icon/favicon-128x128.png"
+    }
+  },
+  "icons": {
+    "16": "icon/favicon-16x16.png",
+    "32": "icon/favicon-32x32.png",
+    "48": "icon/favicon-48x48.png",
+    "128": "icon/favicon-128x128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.reddit.com/*"
+      ],
+      "js": [
+        "disable-elements.js"
+      ],
+      "run_at": "document_end"
+    }
+  ]
+}
